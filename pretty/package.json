@@ -1,0 +1,14 @@
+{
+  "name": "pretty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "all.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nodeunit test/*.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

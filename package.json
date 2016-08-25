@@ -1,0 +1,25 @@
+{
+  "name": "apiproxy",
+  "version": "0.1.0",
+  "description": "一个正向或者反向代理服务器, 针对某些特殊的url返回特定的内容",
+  "main": "proxy.js",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "^4.13.0",
+    "http-proxy": "^1.11.1",
+    "multer": "^0.1.8",
+    "querystring": "^0.2.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "supertest": "^1.0.1"
+  },
+  "scripts": {
+    "test": "nodeunit test/*.js"
+  },
+  "author": {
+    "name": "Pingan Yi",
+    "email": "pingany@gmail.com"
+  },
+  "license": "ISC"
+}
