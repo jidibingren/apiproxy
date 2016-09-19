@@ -8,8 +8,9 @@ var assert = require('assert');
 var common = require('./common.js');
 // var specialPaths = require('./specialPaths.js');
 var specialPaths = {
-    1 : require('./specialPaths.js'),
-    2 : require('./carShopPaths.js')
+    1 : require('./pathsCheezu.js'),
+    2 : require('./pathsCarShop.js'),
+    3 : require('./pathsHSChannel.js'),
 };
 
 // Create Server
@@ -58,7 +59,10 @@ if (require.main == module) {
     appCode = process.argv[3];
     if (appCode == undefined) {
         console.log('node proxy.js ip/domain 应用代号');
-        console.log('应用代号：\n    1 代表车e族\n    2 代表我有一辆车\n');
+        console.log('应用代号：\n'+
+                    '    1 代表车e族\n'+
+                    '    2 代表我有一辆车\n'+
+                    '    3 代表我有HSChannel\n');
         return;
     };
     if (!address.startsWith('http://') && !address.startsWith('https://')) {
