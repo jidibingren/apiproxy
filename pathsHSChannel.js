@@ -676,7 +676,7 @@ var specialPaths = {
 			},
         ]);
     },
-    '/action/parent/leave/list': function(req, res) {
+    '/action/child/leave/teacher/list': function(req, res) {
         writeData(res, [
         	{
 				"id":'1234567',
@@ -710,11 +710,247 @@ var specialPaths = {
 			},
 		]);
     },
-    '/api/message/list': function(req, res) {
+    '/action/child/leave/list': function(req, res) {
+        writeData(res, [
+        	{
+				"id":'1234567',
+				"createTim":23456787678,
+				"stuId":123456,
+				"stuName":'小明',
+				"reason":'dfasfdfsa',
+				"teacherId":123456,
+				"teacherName":'张老师',
+				"feedback":'同意'
+			},
+			{
+				"id":'1234567',
+				"createTim":23456787678,
+				"stuId":123456,
+				"stuName":'小明',
+				"reason":'dfasfdfsa',
+				"teacherId":123456,
+				"teacherName":'张老师',
+				"feedback":''
+			},
+			{
+				"id":'1234567',
+				"createTim":23456787678,
+				"stuId":123456,
+				"stuName":'小明',
+				"reason":'dfasfdfsa',
+				"teacherId":123456,
+				"teacherName":'张老师',
+				"feedback":'同意'
+			},
+		]);
+    },
+    '/action/school/food/list': function(req, res) {
+        writeData(res, [
+        	{
+        		'mealDate':'2016-10-03 08:09:09',
+        		'meals':[
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+        		],
+        	},
+        	{
+        		'mealDate':'2016-10-02 08:09:09',
+        		'meals':[
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+        			
+        			{
+        				'mealName':'qwerty',
+        				'foods':[
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        					{
+        						'foodId':12345,
+        						'foodImage':'http://www.baidu.com',
+        						'foodName':'fdfdfdf',
+        					},
+        				],
+        			},
+        		],
+        	},
+        ]);
+    },
+    '/api/message/read': function(req, res) {
         writeData(res, {
         });
     },
-    '/api/message/read': function(req, res) {
+    '/action/child/leave/teacher/deal': function(req, res) {
+        writeData(res, {
+        });
+    },
+    '/action/parent/leave': function(req, res) {
         writeData(res, {
         });
     },
