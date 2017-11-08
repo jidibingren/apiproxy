@@ -12,6 +12,7 @@ var specialPaths = {
     1 : require('./pathsCheezu.js'),
     2 : require('./pathsCarShop.js'),
     3 : require('./pathsHSChannel.js'),
+    1000 : require('./toongine.js'),
 };
 
 // Create Server
@@ -34,7 +35,7 @@ function apiProxy() {
   }
 }
 
-app.use(apiProxy());
+// app.use(apiProxy());
 
 // Make it parse body
 // http://expressjs.com/4x/api.html#req
@@ -44,10 +45,18 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
 
-app.all('*', function(req, res) {
-    console.log("handle special path", req.path);
-    specialPaths[appCode][req.path](req, res);
-});
+// app.all('*', function(req, res) {
+//     console.log("handle special path", req.path);
+//     specialPaths[appCode][req.path](req, res);
+// });
+
+function generalSet(app,specialPaths){
+    app.use(apiProxy());
+    app.all('*', function(req, res) {
+        console.log("handle special path", req.path);
+        specialPaths[appCode][req.path](req, res);
+    });
+}
 
 module.exports = {server, proxy, serverOptions};
 
@@ -67,6 +76,13 @@ if (require.main == module) {
                     '    3 代表我有HSChannel\n');
         return;
     };
+
+    if (appCode < 1000) {
+        generalSet(app, specialPaths);
+    } else {
+        specialPaths[appCode](app);
+    }
+
     if (!address.startsWith('http://') && !address.startsWith('https://')) {
         address = 'http://'+address;
     }
