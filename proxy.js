@@ -12,6 +12,7 @@ var specialPaths = {
     1 : require('./pathsCheezu.js'),
     2 : require('./pathsCarShop.js'),
     3 : require('./pathsHSChannel.js'),
+    4 : require('./applibrary.js'),
     1000 : require('./toongine.js'),
 };
 
@@ -73,7 +74,9 @@ if (require.main == module) {
                     '    0 test\n'+
                     '    1 代表车e族\n'+
                     '    2 代表我有一辆车\n'+
-                    '    3 代表我有HSChannel\n');
+                    '    3 代表HSChannel\n'+
+                    '    4 代表applibrary\n'+
+                    '    1000 代表toongine\n');
         return;
     };
 

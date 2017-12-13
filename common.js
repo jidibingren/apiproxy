@@ -7,6 +7,11 @@ var queryString = require('./node_modules/querystring/');
 _.extendOwn(module.exports, require('./pretty/'));
 
 // @res http.ServerResponse
+function writeResponse(res, code, headers, body) {
+    res.writeHead(code, {'Content-Type': 'application/json'});
+    res.end(body);
+}
+
 function writeJson(res, object) {
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.end(JSON.stringify(object, null, 2));
@@ -65,5 +70,5 @@ function parseQueryParams(req){
     return params;
 }
 
-_.extendOwn(module.exports, {writeJson, writeData, writeText, writeXml, writeBase64, writeJavaScript, writeXWWWFormUrlEncode, writeOctetStream, writeError, parseQueryParams});
+_.extendOwn(module.exports, {writeResponse, writeJson, writeData, writeText, writeXml, writeBase64, writeJavaScript, writeXWWWFormUrlEncode, writeOctetStream, writeError, parseQueryParams});
 
