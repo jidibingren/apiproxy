@@ -98,6 +98,11 @@ function writeData(res, data) {
 }
 
 module.exports = function init(app){
+    var bodyParser = require('body-parser');
+    var multer = require('multer'); 
+    app.use(bodyParser.json()); // for parsing application/json
+    app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+    app.use(multer()); // for parsing multipart/form-data
     methodsInfo.forEach(function (item){
         app[item.name]('/toongine/request/'+item.name, function (req, res){
             requestCache.push(req.route['path']);

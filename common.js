@@ -66,8 +66,8 @@ function parseQueryParams(req){
     // console.log("req.body", req.body);
     // console.log("req.params", req.params);
     var params = _.extendOwn({}, req.query);
-    _.extendOwn(params, req.body);
-    return params;
+    return _.extendOwn(params, req.body);
+    
 }
 
 _.extendOwn(module.exports, {writeResponse, writeJson, writeData, writeText, writeXml, writeBase64, writeJavaScript, writeXWWWFormUrlEncode, writeOctetStream, writeError, parseQueryParams});
