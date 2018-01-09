@@ -13,9 +13,11 @@ function round(){
 }
 
 function writeDataCustom(res) {
+	var meta = {};
 	var dict = {};
-	dict['code'] = 0;
-	dict['msg'] = '';
+	meta['code'] = 0;
+	meta['msg'] = '';
+	dict['meta'] = meta;
 	for( var i = 1; i < arguments.length; i += 2 ){  
         dict[arguments[i]] = arguments[i+1]; 
     } 
@@ -39,7 +41,7 @@ var appInfoMap = {
 			'appUrl':'https://m.baidu.com',
 			'recommend':2,
 			'isGroup':false,
-			'appType':1,
+			'appType':3,
 			'isCustom':false,
 			'iconList':['a','a'],
 			'sourceScope':'scope',
@@ -64,7 +66,7 @@ var appInfoMap = {
 			'appUrl':'https://sina.cn',
 			'recommend':2,
 			'isGroup':false,
-			'appType':2,
+			'appType':1,
 			'isCustom':false,
 			'iconList':['a','a'],
 			'sourceScope':'scope',
@@ -90,7 +92,7 @@ var appInfoMap = {
 			'appUrl':'/src/index.html',
 			'recommend':2,
 			'isGroup':false,
-			'appType':3,
+			'appType':2,
 			'isCustom':false,
 			'iconList':['a','a'],
 			'sourceScope':'scope',
@@ -119,7 +121,7 @@ var appInfoMap = {
 			'appUrl':'/src/index.html',
 			'recommend':2,
 			'isGroup':false,
-			'appType':3,
+			'appType':2,
 			'isCustom':false,
 			'iconList':['a','a'],
 			'sourceScope':'scope',

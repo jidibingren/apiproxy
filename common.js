@@ -3,6 +3,7 @@ var url = require('url');
 var _ = require('underscore');
 var assert = require('assert');
 var queryString = require('./node_modules/querystring/');
+var os = require('os');
 
 _.extendOwn(module.exports, require('./pretty/'));
 
@@ -70,5 +71,31 @@ function parseQueryParams(req){
     
 }
 
-_.extendOwn(module.exports, {writeResponse, writeJson, writeData, writeText, writeXml, writeBase64, writeJavaScript, writeXWWWFormUrlEncode, writeOctetStream, writeError, parseQueryParams});
+function hostIPv4() {
+    var ipv4;
+    var ips = [];
+    if(process.platform === 'darwin') {
+        var ifaces=os.networkInterfaces();  
+        for (var dev in ifaces) {  
+          var alias=0;  
+          ifaces[dev].forEach(function(details){  
+            if (details.family=='IPv4' && details.address!='127.0.0.1') {
+              ips.push(details.address);
+              console.log(details.address);
+            }  
+          });
+        }
+        ipv4 = ips[0];
+    } else if(process.platform === 'win32') {
+        for(var i = 0; i < os.networkInterfaces()['本地连接'].length; i++) {
+            if(os.networkInterfaces()['本地连接'][i].family == 'IPv4') {
+                ipv4 = os.networkInterfaces()['本地连接'][i].address;
+
+            }
+        }
+    }
+    return ipv4;
+}
+
+_.extendOwn(module.exports, {writeResponse, writeJson, writeData, writeText, writeXml, writeBase64, writeJavaScript, writeXWWWFormUrlEncode, writeOctetStream, writeError, parseQueryParams, hostIPv4});
 
