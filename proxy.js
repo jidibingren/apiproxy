@@ -13,6 +13,7 @@ var specialPaths = {
     3 : require('./pathsHSChannel.js'),
     4 : require('./applibrary.js'),
     1000 : require('./toongine.js'),
+    1001 : require('./applibrary2/applibrary.js'),
 };
 
 // Create Server
