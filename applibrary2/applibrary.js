@@ -41,7 +41,7 @@ var appInfoMap = {
 	        "appIcon": "http://fast.scloud.systoon.com/f/TZqpmDXS81VJKJwXHAloFiDufKg4o7IOtvzGPvfnuqAfF.png",
 	        "remark": "百度一下",
 	        "appUrl": baseUrl+'tb1'+'/manifest.json',
-	        "appInfo": '{\"userInfo\":\"获取用户信息\",\"userToken\":\"获取token\"}',
+	        "appInfo": '[{\"desc\":\"获取用户信息\",\"level\":1},{\"desc\":\"获取用户token\",\"level\":2}]',
 	        "toonEngine": 3,
 	        "startUrl": "http://www.baidu.com",
 	        "downloadUrl": "",
@@ -54,7 +54,7 @@ var appInfoMap = {
 	        "appIcon": "http://scloud.toon.mobi/f/zE6pDktIt08G7IUyTK6m6KoldWlom-VBSgmGd3zvlqMfG.png",
 	        "remark": "新浪",
 	        "appUrl": baseUrl+'tb2'+'/manifest.json',
-	        "appInfo": '{\"userInfo\":\"获取用户信息\",\"userToken\":\"获取token\"}',
+	        "appInfo": '[{\"desc\":\"获取用户信息\",\"level\":1},{\"desc\":\"获取用户token\",\"level\":2}]',
 	        "toonEngine": 3,
 	        "startUrl": "http://sina.cn",
 	        "downloadUrl": "",
@@ -67,7 +67,7 @@ var appInfoMap = {
 	        "appIcon": "http://scloud.toon.mobi/f/zE6pDktIt08G7IUyTK6m6KoldWlom-VBSgmGd3zvlqMfG.png",
 	        "remark": "应用引擎api调用示例",
 	        "appUrl": baseUrl+'tb3'+'/manifest.json',
-	        "appInfo": '{\"userInfo\":\"获取用户信息\",\"userToken\":\"获取token\"}',
+	        "appInfo": '[{\"desc\":\"获取用户信息\",\"level\":1},{\"desc\":\"获取用户token\",\"level\":2}]',
 	        "toonEngine": 3,
 	        "startUrl": "http://p100toongine.systoon.com",
 	        "downloadUrl": "",
@@ -80,7 +80,7 @@ var appInfoMap = {
 	        "appIcon": "http://scloud.toon.mobi/f/zE6pDktIt08G7IUyTK6m6KoldWlom-VBSgmGd3zvlqMfG.png",
 	        "remark": "你你你-2",
 	        "appUrl": baseUrl+'tb4'+'/manifest.json',
-	        "appInfo": '{\"userInfo\":\"获取用户信息\",\"userToken\":\"获取token\"}',
+	        "appInfo": '[{\"desc\":\"获取用户信息\",\"level\":1},{\"desc\":\"获取用户token\",\"level\":2}]',
 	        "toonEngine": 3,
 			"startUrl":"/src/index.html",
 			"downloadUrl":"http://p100activities.toon.mobi/716.zip",
@@ -91,7 +91,7 @@ var appInfoMap = {
 
 
 var specialPaths = {
-    '/app/queryAppList': function(req, res) {
+    '/applib/app/queryAppList': function(req, res) {
     	// console.log(req)
     	// return;
         var queryParams = common.parseQueryParams(req);
@@ -134,6 +134,9 @@ module.exports = function init(app){
 	app.all('/:appid/manifest.json', function (req, res){
 		var appId = req.params.appid
 		var appInfo = appInfoMap[appId];
+		var appStatus = appId == "tb2"
+		var navStatus = appId == "tb2"
+		var rotation = appId == "tb2"
 	    if (appInfoMap[appId+'handler'] == undefined) {
 	        common.writeJson(res,{
 	        	"appId": appInfo['appId'],
@@ -152,7 +155,11 @@ module.exports = function init(app){
 				"authApiInfo":{
 					"action_user_getUserInfo": 1,
 					"action_user_getUserToken": 1,
-				}
+				},
+				"authApiLevel":1,
+				"status":appStatus,
+				"navHidden":navStatus,
+				"rotation":rotation
 	        });
 	    } else {
 	        item.handler(req, res);

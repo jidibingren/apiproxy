@@ -68,7 +68,8 @@ if (require.main == module) {
                     '    2 代表我有一辆车\n'+
                     '    3 代表HSChannel\n'+
                     '    4 代表applibrary\n'+
-                    '    1000 代表toongine\n');
+                    '    1000 代表toongine\n'+
+                    '    1001 代表fhjh\n');
         return;
     };
 
